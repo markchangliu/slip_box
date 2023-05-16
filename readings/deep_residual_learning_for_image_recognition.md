@@ -16,6 +16,6 @@
 
 ## ResNet-34 building block
 
-Figure 1. ResNet-34 building block architecture. **Left**: a block with feature map size and the number of channels unchanged. **Right**: a block with feature map size halved and the number of channels doubled.
-
 ![ResNet-34 building block](./img/ResNet-34.drawio.png)
+
+Figure 1. ResNet-34 building block architecture. **Left**: a block with feature map size and the number of channels unchanged. **Right**: a block with feature map size halved and the number of channels doubled.
