@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-16T01:49:11.040Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="WVHDSJh_nA4tS0rhdFmo" version="21.3.0" type="google">
+<mxfile host="app.diagrams.net" modified="2023-05-17T14:51:19.904Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="ctv4vT8Q4TjY8vdev8bY" version="21.3.2" type="google">
   <diagram name="第 1 页" id="U5FjOyqFveNuQuQbqW4P">
     <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -76,7 +76,7 @@
         <mxCell id="Lip0RFg4Z80QYY3nlwnB-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Lip0RFg4Z80QYY3nlwnB-27" target="Lip0RFg4Z80QYY3nlwnB-31">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Lip0RFg4Z80QYY3nlwnB-27" value="Conv&lt;br&gt;(k = 3, s = 1, p = 1,&lt;br&gt;c_in, c_in)&lt;br&gt;&lt;br&gt;BN" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Lip0RFg4Z80QYY3nlwnB-27" value="Conv&lt;br&gt;(k = 3, s = 1, p = 1,&lt;br&gt;2*c_in, 2*c_in)&lt;br&gt;&lt;br&gt;BN" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="440" y="270" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Lip0RFg4Z80QYY3nlwnB-28" value="Relu" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
