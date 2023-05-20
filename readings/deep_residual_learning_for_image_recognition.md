@@ -25,3 +25,11 @@ Figure 1. ResNet-18/34 building block architecture. **Left**: a block with featu
 ![ResNet-50/101/152 building block](./img/ResNet_50_101_152_building_block.png)
 
 Figure 1. ResNet-50/101/152 building block architecture. **Left**: a block with feature map size and the number of channels unchanged. **Right**: a block with feature map size halved and the number of channels doubled.
+
+## ResStage, ResStem, ResHead
+
+![ResStage](./img/ResStage_ResStem_ResHead.png)
+
+## ResNet
+
+![ResNet](./img/ResNet.png)
