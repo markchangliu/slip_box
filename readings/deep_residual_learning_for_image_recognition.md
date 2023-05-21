@@ -58,23 +58,47 @@
 
   * Highway networks have not demonstrated accuracy gains with extremely increased depth.
 
+# Residual Learning
+
+The reseatch team argue that the residual function $F(x):=H(x)-x$ is easier to be optimized than the underlying original function $H(x)$. This argument supported by Figure 3, on which we can see that the residual function in general have small response stds, suggesting that identity mapings provide reasonable preconditioning.
+
+<p style="text-align: center"><img src="./img/arXiv_1512_03385/Figure3.png" width="600"></p>
+<p style="text-align: center">Figure 3. Standard deviation (std) of layer responses on CIFAR-10. The responses are the outputs of each 3x3 layer, after BN and before nonlinearlity. <b>Top:</b> the layers are shown in their original order. <b>Bottom:</b> the responses are ranked in descending order.</p>
+
 # ResNet Architecture
 
-## ResNet-18/34 building block
+The research team introduces 5 members for the ResNet family, which are ResNet-18, 34, 50, 101, and 152. The members share a stem and head architecture, but use different building blocks in stages. The architectures of blocks, stages, stem, head, and the entire ResNet networks are illustrated below.
 
-![ResNet-18/34 building block](./img/arXiv_1512_03385/ResNet_18_34_building_block.png)
+## ResNet-18/34 Building Block
 
-Figure 1. ResNet-18/34 building block architecture. **Left**: a block with feature map size and the number of channels unchanged. **Right**: a block with feature map size halved and the number of channels doubled.
+A building block of ResNet-18/34 is composed of two 3x3 convolutional layers and follow two design rules:
 
-## ResNet-50/101/152 building block
+* For the same output feature map size, the layers have the same number of filters and a stride of 1. The identity shortcut is used directly is this case.
 
-![ResNet-50/101/152 building block](./img/arXiv_1512_03385/ResNet_50_101_152_building_block.png)
+* If the feature map size is halved, the layers have number of filters doubled and a stride of 2. A projection shortcut done by 1x1 convolutions is used to match dimensions.
 
-Figure 1. ResNet-50/101/152 building block architecture. **Left**: a block with feature map size and the number of channels unchanged. **Right**: a block with feature map size halved and the number of channels doubled.
+<p style="text-align: center"><img src="./img/arXiv_1512_03385/ResNet_18_34_building_block.png" width="600"></p>
+<p style="text-align: center">Figure 4. ResNet-18/34 building block architecture. <b>Left:</b> a block with feature map size and the number of channels unchanged. <b>Right:</b> a block with feature map size halved and the number of channels doubled.</p>
+
+## ResNet-50/101/152 Building Block
+
+For ResNet-50/101/152, their building blocks present a bottleneck transformation, which is done by 1x1, 3x3, and 1x1 convolutions. The 1x1 layers are responsible for reducing and then increasing dimensions, leaving the 3x3 layer a bottleneck with smaller input/output dimensions.
+
+Except the internal bottleneck transformation, the building block as a whole processes feature maps in the same way as the one of ResNet-18/34. That is, the output feature maps' dimensions are either unchanged, or have height/width halved and channel number doubled. In the former case, a 1x1 convolution layer is also applied on the shortcut connection to match output feature dimensions.
+
+<p style="text-align: center"><img src="./img/arXiv_1512_03385/ResNet_50_101_152_building_block.png" width="600"></p>
+<p style="text-align: center">Figure 5. ResNet-50/101/152 building block architecture. <b>Left</b>: a block with feature map size and the number of channels unchanged. <b>Right</b>: a block with feature map size halved and the number of channels doubled.</p>
 
 ## ResStage, ResStem, ResHead
 
-![ResStage](./img/arXiv_1512_03385/ResStage_ResStem_ResHead.png)
+To begin with, ResStem is where input images are initially processed. It is composed of a 7x7 convolutional layer and a max pooling layer. Both of them have strides of 2 and the convolutional layer has 64 number of filters, which leads to an output of size (H/4, W/4, 64).
+
+ResStem is followed by several ResStages, which is the core part of ResNet network that residual mappings are applied on. A ResStage is formed by stacking $d$ building blocks, where the 1st block performs feature downsampling if necessary, and the remaining ones maintain a constant feature size. The detailed settings for ResNet-18/34/50/101/152, including the values of $d$s, strides, input and output channel numbers, are listed in Figure 6.
+
+
+
+<p style="text-align: center"><img src="./img/arXiv_1512_03385/ResStage_ResStem_ResHead.png" width="600"></p>
+<p style="text-align: center">Figure 5. The architectures of ResStage <b>(left)</b>, ResStem <b>(middle)</b>, and ResHead <b>(right)</b>.</p>
 
 ## ResNet
 
