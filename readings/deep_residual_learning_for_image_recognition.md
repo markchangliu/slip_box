@@ -84,7 +84,7 @@ A building block of ResNet-18/34 is composed of two 3x3 convolutional layers and
 
 For ResNet-50/101/152, their building blocks present a bottleneck transformation, which is done by 1x1, 3x3, and 1x1 convolutions. The 1x1 layers are responsible for reducing and then increasing dimensions, leaving the 3x3 layer a bottleneck with smaller input/output dimensions.
 
-Except the internal bottleneck transformation, the building block as a whole processes feature maps in the same way as the one of ResNet-18/34. That is, the output feature maps' dimensions are either unchanged, or have height/width halved and channel number doubled. In the former case, a 1x1 convolution layer is also applied on the shortcut connection to match output feature dimensions.
+Except the internal bottleneck transformation, the building block as a whole processes feature maps in the same way as the ones of ResNet-18/34. That is, the output feature maps' dimensions are either unchanged, or have height/width halved and channel number doubled. In the former case, a 1x1 convolution layer is also applied on the shortcut connection to match output feature dimensions.
 
 <p style="text-align: center"><img src="./img/arXiv_1512_03385/ResNet_50_101_152_building_block.png" width="600"></p>
 <p style="text-align: center">Figure 5. ResNet-50/101/152 building block architecture. <b>Left</b>: a block with feature map size and the number of channels unchanged. <b>Right</b>: a block with feature map size halved and the number of channels doubled.</p>
@@ -95,11 +95,16 @@ To begin with, ResStem is where input images are initially processed. It is comp
 
 ResStem is followed by several ResStages, which is the core part of ResNet network that residual mappings are applied on. A ResStage is formed by stacking $d$ building blocks, where the 1st block performs feature downsampling if necessary, and the remaining ones maintain a constant feature size. The detailed settings for ResNet-18/34/50/101/152, including the values of $d$s, strides, input and output channel numbers, are listed in Figure 6.
 
-
+ResHead is the last part of a ResNet network that performs classifications. It is composed of an adaptive average pooling layer, a fully connected layer, and a softmax layer. The pooling reshapes feature maps' widths and heights to a size of (1, 1), and the fully connected layer further transforms the number of channels into the number of classes. Finally, the classification confidence values are computed across the channel dimension by the softmax layer.
 
 <p style="text-align: center"><img src="./img/arXiv_1512_03385/ResStage_ResStem_ResHead.png" width="600"></p>
 <p style="text-align: center">Figure 5. The architectures of ResStage <b>(left)</b>, ResStem <b>(middle)</b>, and ResHead <b>(right)</b>.</p>
 
 ## ResNet
 
-![ResNet](./img/arXiv_1512_03385/ResNet.png)
+The diagrams below illustrate the entire architectures and parameter settings of all ResNet family members. To recap, all ResNet members use common architectures of ResStem and ResHead, while the building block of ResStages are different. ResNet-18/34's building blocks use regular convolutional transformation, while ResNet-50/101/152 uses bottleneck transformation instead.
+
+<p style="text-align: center"><img src="./img/arXiv_1512_03385/ResNet.png" width="600"></p>
+<p style="text-align: center">Figure 6. The architectures and parameter settings of all ResNet family members.</p>
+
+# Experimental Observations and Analysis
