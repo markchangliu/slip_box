@@ -107,4 +107,32 @@ The diagrams below illustrate the entire architectures and parameter settings of
 <p style="text-align: center"><img src="./img/arXiv_1512_03385/ResNet.png" width="600"></p>
 <p style="text-align: center">Figure 6. The architectures and parameter settings of all ResNet family members.</p>
 
+# Implementation Details
+
+* Resize the image with its shorter side randomly sampled in [256, 480] for scale augmentation.
+
+* A 224x224 random crop is sampled from the an image or its horizontal flip, with per-pixel mean subtracted. 
+
+* The standard color augmentation is used.
+
+* Batch normalizations are adopted right after each convolution and before activation.
+
+* Train all plain/residual nets from scratch.
+
+* SGD mini-batch = 256, learning rate starts from 0.1 and is divided by 10 when the error plateau, weight decay = 0.0001, momentum = 0.9
+
+* Weights are initialized as in [Delving deep into rectifiers:
+Surpassing human-level performance on imagenet classification](https://arxiv.org/abs/1502.01852)
+
+* Models are trained for up to $60*10^4$ iterations.
+
+* Dropout is not used.
+
+* In testing, techniques including 10-crop testing, fully-concolutional form are adopted. The team averaged the scores at multiple scales.
+
 # Experimental Observations and Analysis
+
+The comparision of training & validation errors btw 18-layer and 34-layer plain nets and ResNets reveal the following points:
+
+* Plain nets exhibit degradation problems, since plain-34 has higher training error than plain-18, as illustrated in Figure 7. The
+
