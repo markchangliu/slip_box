@@ -48,9 +48,9 @@
 
 # Related Work
 
-* **Residual Representations**: Some existing residual representations suggest that a good reformulation or preconditioning can simplify the optimization. These methods include VLAD, Fisher Vector, Multigrid method, hierarchical basis preconditioning. 
+* **Residual Representations**: Some existing residual representations suggest that a good reformulation or preconditioning can simplify the optimization. These methods include *VLAD, Fisher Vector, Multigrid method, hierarchical basis preconditioning*. 
 
-* **Short Cinnections**: Concurrent with ResNet, "highway networks" present short connections with gating functions. It has 3 drawbacks compared with ResNet:
+* **Short Cinnections**: Concurrent with ResNet, *"highway networks"* present short connections with gating functions. It has 3 drawbacks compared with ResNet:
 
   * The gates are data-dependent and have parameters, while ResNet's identity mapping is parameter-free.
 
@@ -75,7 +75,11 @@ A building block of ResNet-18/34 is composed of two 3x3 convolutional layers and
 
 * For the same output feature map size, the layers have the same number of filters and a stride of 1. The identity shortcut is used directly is this case.
 
-* If the feature map size is halved, the layers have number of filters doubled and a stride of 2. A projection shortcut done by 1x1 convolutions is used to match dimensions.
+* If the feature map size is halved, the layers have number of filters doubled and a stride of 2. The research team considers two options for shortcut connection in this case:
+
+  * Identity shortcut (option A): The shortcut still performs identity mapping, *with extra zero padding for increasing dimensions*. This option introduces no extra parameters.
+
+  * Projection shortcut (option B): A 1x1 convolution is used to match dimensions.
 
 <p style="text-align: center"><img src="./img/arXiv_1512_03385/ResNet_18_34_building_block.png" width="600"></p>
 <p style="text-align: center">Figure 4. ResNet-18/34 building block architecture. <b>Left:</b> a block with feature map size and the number of channels unchanged. <b>Right:</b> a block with feature map size halved and the number of channels doubled.</p>
@@ -84,7 +88,7 @@ A building block of ResNet-18/34 is composed of two 3x3 convolutional layers and
 
 For ResNet-50/101/152, their building blocks present a bottleneck transformation, which is done by 1x1, 3x3, and 1x1 convolutions. The 1x1 layers are responsible for reducing and then increasing dimensions, leaving the 3x3 layer a bottleneck with smaller input/output dimensions.
 
-Except the internal bottleneck transformation, the building block as a whole processes feature maps in the same way as the ones of ResNet-18/34. That is, the output feature maps' dimensions are either unchanged, or have height/width halved and channel number doubled. In the former case, a 1x1 convolution layer is also applied on the shortcut connection to match output feature dimensions.
+Except the internal bottleneck transformation, the building block as a whole processes feature maps in the same way as the ones of ResNet-18/34. That is, the output feature maps' dimensions are either unchanged, or have height/width halved and channel number doubled. In the latter case, a 1x1 convolution layer is also applied on the shortcut connection to match output feature dimensions.
 
 <p style="text-align: center"><img src="./img/arXiv_1512_03385/ResNet_50_101_152_building_block.png" width="600"></p>
 <p style="text-align: center">Figure 5. ResNet-50/101/152 building block architecture. <b>Left</b>: a block with feature map size and the number of channels unchanged. <b>Right</b>: a block with feature map size halved and the number of channels doubled.</p>
@@ -121,18 +125,62 @@ The diagrams below illustrate the entire architectures and parameter settings of
 
 * SGD mini-batch = 256, learning rate starts from 0.1 and is divided by 10 when the error plateau, weight decay = 0.0001, momentum = 0.9
 
-* Weights are initialized as in [Delving deep into rectifiers:
-Surpassing human-level performance on imagenet classification](https://arxiv.org/abs/1502.01852)
+* Weights are initialized as in: 
+
+  > K. He, X. Zhang, S. Ren, and J. Sun. Delving deep into rectifiers: Surpassing human-level performance on imagenet classification. In ICCV, 2015.
 
 * Models are trained for up to $60*10^4$ iterations.
 
 * Dropout is not used.
 
-* In testing, techniques including 10-crop testing, fully-concolutional form are adopted. The team averaged the scores at multiple scales.
+* In testing, the research team adopts *10-crop testing*, *fully-concolutional form* are adopted. The team averaged the scores at multiple scales (images are resized such that the shorter side is in {224, 256, 384, 480, 640}).
+
+  > *10_crop testing*: 
+  
+    >> A. Krizhevsky, I. Sutskever, and G. Hinton. Imagenet classification with deep convolutional neural networks. In NIPS, 2012.
+
+  > *fully-convolutional form*: 
+
+    >> K. He, X. Zhang, S. Ren, and J. Sun. Delving deep into rectifiers: Surpassing human-level performance on imagenet classification. InICCV, 2015.
+
+    >> K. Simonyan and A. Zisserman. Very deep convolutional networks for large-scale image recognition. In ICLR, 2015.
 
 # Experimental Observations and Analysis
 
-The comparision of training & validation errors btw 18-layer and 34-layer plain nets and ResNets reveal the following points:
+## 18-Layer and 34-Layer Plain Nets vs ResNets
 
-* Plain nets exhibit degradation problems, since plain-34 has higher training error than plain-18, as illustrated in Figure 7. The
+The research team 
+
+The comparision of training & validation errors btw 18-layer and 34-layer plain nets and ResNets reveals the following points:
+
+* Plain nets exhibit degradation problems, since plain-34 has higher training error than plain-18, as illustrated in Figure 4. The research team argue that this optimization difficulty is unlikely to be caused by vanishing gradients. These plain networks are trained with BN, which ensures forward propogated signals to have non-zero variances. The team also verify that the backward propogated gradients exhibit healthy norms with BN. So neither forward nor backward signals vanish. 
+
+* ResNet-34 exhibits considerably lower training error and is generalizable to the validation data, compared with ResNet-18. This indicates that the degradation problem is well addressed and we manage to obtain accuracy gains from increased depth.
+
+* Compared to its plain counterpart, the ResNet-34 reduces the top-1 error by 3.5%. This verifies the effectiveness of residual learning on extremely deep systems.
+
+* The 18-layer plain/residual nets are comparably accurate (Table 1), but ResNet-18 converges faster (Figure 4 right vs left). When the net is "not overly deep" (18 layers here), the current SGD solver is still able to find good solutions to the plain net. In this case, the ResNet eases the optimization by providing faster convergence at the early stage.
+
+<p style="text-align: center"><img src="./img/arXiv_1512_03385/Figure4.png" width="600"></p>
+<p style="text-align: center">Figure 4. Training on ImageNet. The curves denote training error, and bold curves denote validation error of the <i>center crops</i>. Left: plain networks of 18 and 34 layers. Right: ResNet of 18 and 34 layers. In this plot, the residual networks have no extra parameter compared to their plain counterparts (the Option A shortcut connection is applied).</p>
+
+<p style="text-align: center"><img src="./img/arXiv_1512_03385/Table1.png" width="300"></p>
+<p style="text-align: center">Table 1. Top-1 error (%, <i>10-crop testing</i>) on ImageNet validation. Here the ResNets have no extra parameter compared to their plain counterparts. Figure 4 shows the training procedure.</p>
+
+## Indentity vs Projection Shorts
+
+The research team compares the performances of ResNet-34 with 3 options of shortcuts:
+
+* Option A: zero-padding shortcuts are used for increasing dimensions, and all shortcuts are parameter free.
+
+* Option B: projection-shortcuts are used for increasing dimensions, and other shortcuts are identity.
+
+* Option C: all shortcuts are projections.
+
+Table 2 shows that all 3 options are considerably better than the plain counterpart. B is slightly better than A. The team argues that this is because *the zero-padded dimensions in A indeed have no residual learning*. C is marginally better than B, and we attribute this to the extra parameters introduced by many projection shortcuts. But the small difference among A/B/C indicates that projection shortcuts are not essential for addressing the degradation problem. So the research team do not use C in the rest of paper, to reduce memory/time complexity and model sizes. Identity shortcut are particularly important for not increasing the complexity of bottleneck architectures that are introduced below.
+
+<p style="text-align: center"><img src="./img/arXiv_1512_03385/Table2.png" width="300"></p>
+<p style="text-align: center">Table 2. Error rates (%, <i>10-crop testing</i>) on ImageNet validation. VGG-16 is based on our test. ResNet-50/101/152 are of option B that only uses projections for increasing dimensions.</p>
+
+## Deeper Bottleneck Architecture
 
