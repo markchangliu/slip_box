@@ -75,11 +75,7 @@ A building block of ResNet-18/34 is composed of two 3x3 convolutional layers and
 
 * For the same output feature map size, the layers have the same number of filters and a stride of 1. The identity shortcut is used directly is this case.
 
-* If the feature map size is halved, the layers have number of filters doubled and a stride of 2. The research team considers two options for shortcut connection in this case:
-
-  * Identity shortcut (option A): The shortcut still performs identity mapping, *with extra zero padding for increasing dimensions*. This option introduces no extra parameters.
-
-  * Projection shortcut (option B): A 1x1 convolution is used to match dimensions.
+* If the feature map size is halved, the layers have number of filters doubled and a stride of 2. A 1x1 convolution is used in the projection shortcut to match dimensions.
 
 <p style="text-align: center"><img src="./img/arXiv_1512_03385/ResNet_18_34_building_block.png" width="600"></p>
 <p style="text-align: center">Figure 4. ResNet-18/34 building block architecture. <b>Left:</b> a block with feature map size and the number of channels unchanged. <b>Right:</b> a block with feature map size halved and the number of channels doubled.</p>
@@ -145,7 +141,7 @@ The diagrams below illustrate the entire architectures and parameter settings of
 
     >> K. Simonyan and A. Zisserman. Very deep convolutional networks for large-scale image recognition. In ICLR, 2015.
 
-# Experimental Observations and Analysis
+# ImagNet Classification Result Analysis
 
 ## 18-Layer and 34-Layer Plain Nets vs ResNets
 
@@ -184,3 +180,11 @@ Table 2 shows that all 3 options are considerably better than the plain counterp
 
 ## Deeper Bottleneck Architecture
 
+The research team then evaluates and analyzes ResNet-50/101/152's performances. They adopt projection shortcut (option B) for increasing dimensions. They observe that the ResNet-50/101/152 are more accurate than the 34-layer ones by considerable margins (Table 2 and 3). This indicates that the degradation problem is well addressed and nets with considerably increased depth enjoy significant accuracy gains. The benefits of depth are witnessed for all evaluation metrics (Table 2 and 3).
+
+<p style="text-align: center"><img src="./img/arXiv_1512_03385/Table3.png" width="300"></p>
+<p style="text-align: center">Table 3. Error rates (%) of <i>single-model</i> results on the ImageNet validation set (except the VGG top-5 err is reported on the test set).</p>
+
+## Comparisions with State-of-the-art Methods
+
+As shown in Table 4, the baseline 34-layer ResNets have achieved very competitive accuracy. The ResNet-152 outperforms all previous models. 
