@@ -104,7 +104,7 @@ ResHead is the last part of a ResNet network that performs classifications. It i
 
 The diagrams below illustrate the entire architectures and parameter settings of all ResNet family members. To recap, all ResNet members use common architectures of ResStem and ResHead, while the building block of ResStages are different. ResNet-18/34's building blocks use regular convolutional transformation, while ResNet-50/101/152 uses bottleneck transformation instead.
 
-<p style="text-align: center"><img src="./img/arXiv_1512_03385/ResNet.png" width="600"></p>
+<p style="text-align: center"><img src="./img/arXiv_1512_03385/ResNet.png" width="800"></p>
 <p style="text-align: center">Figure 6. The architectures and parameter settings of all ResNet family members.</p>
 
 # Implementation Details

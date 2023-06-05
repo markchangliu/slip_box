@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-20T09:12:39.528Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="gFTKtAFT797X_UtDgzfJ" version="21.3.2" type="google">
+<mxfile host="app.diagrams.net" modified="2023-06-05T01:30:08.609Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="PnX41onoi7fUP-zBwR6w" version="21.3.7" type="google">
   <diagram name="第 1 页" id="U5FjOyqFveNuQuQbqW4P">
     <mxGraphModel grid="0" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -622,7 +622,7 @@
             <mxPoint x="846.5" y="3212.0689655172414" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Lnv6x8MKGIKXcQCqunt6-129" value="ResHead(c_in = 512, num_classes = n)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Lnv6x8MKGIKXcQCqunt6-129" value="ResHead(c_in = 2048, num_classes = n)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="786.5" y="3088" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Lnv6x8MKGIKXcQCqunt6-130" value="(H/32, W/32, 2048)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
@@ -707,7 +707,7 @@
             <mxPoint x="1191" y="3213.0689655172414" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Lnv6x8MKGIKXcQCqunt6-155" value="ResHead(c_in = 512, num_classes = n)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Lnv6x8MKGIKXcQCqunt6-155" value="ResHead(c_in = 2048, num_classes = n)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1131" y="3089" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Lnv6x8MKGIKXcQCqunt6-156" value="(H/32, W/32, 2048)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
@@ -780,7 +780,7 @@
             <mxPoint x="1538" y="3211.0689655172414" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Lnv6x8MKGIKXcQCqunt6-177" value="ResHead(c_in = 512, num_classes = n)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Lnv6x8MKGIKXcQCqunt6-177" value="ResHead(c_in = 2048, num_classes = n)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1478" y="3087" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Lnv6x8MKGIKXcQCqunt6-178" value="(H/32, W/32, 2048)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
