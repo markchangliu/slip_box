@@ -187,4 +187,4 @@ The research team then evaluates and analyzes ResNet-50/101/152's performances. 
 
 ## Comparisions with State-of-the-art Methods
 
-As shown in Table 4, the baseline 34-layer ResNets have achieved very competitive accuracy. The ResNet-152 outperforms all previous models. 
+As shown in Table 3, the baseline 34-layer ResNets have achieved very competitive accuracy. The ResNet-152 outperforms all previous models. 
