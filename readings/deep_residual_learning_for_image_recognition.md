@@ -65,9 +65,19 @@ The reseatch team argue that the residual function $F(x):=H(x)-x$ is easier to b
 <p style="text-align: center"><img src="./img/arXiv_1512_03385/Figure3.png" width="600"></p>
 <p style="text-align: center">Figure 3. Standard deviation (std) of layer responses on CIFAR-10. The responses are the outputs of each 3x3 layer, after BN and before nonlinearlity. <b>Top:</b> the layers are shown in their original order. <b>Bottom:</b> the responses are ranked in descending order.</p>
 
+The research team introduced 3 options of residual connection. Their performances were tested on the ImageNet dataset, and the result will be discussed in the later section.
+
+* Option A: zero-padding shortcuts are used for increasing dimensions, and all shortcuts are parameter free.
+
+* Option B: projection-shortcuts are used for increasing dimensions, and other shortcuts are identity.
+
+* Option C: all shortcuts are projections.
+
 # Published ResNets' Architecture
 
-The research team introduces 5 members for the ResNet family, which are ResNet-18, 34, 50, 101, and 152. The members share a stem and head architecture, but use different building blocks in stages. The architectures of blocks, stages, stem, head, and the entire ResNet networks are illustrated below.
+The research team introduces 5 members for the ResNet family, which are ResNet-18, 34, 50, 101, and 152, which has become typical architectures of the ResNet family. These members share a stem and head architecture, but use different building blocks in stages. The architectures of blocks, stages, stem, head, and the entire ResNet networks are illustrated below.
+
+The testing results of these published nets on the ImageNet dataset will be discussed in the next section.
 
 ## ResNet-18/34 Building Block
 
@@ -163,13 +173,7 @@ The comparision of training & validation errors btw 18-layer and 34-layer plain 
 
 ## Indentity vs Projection Shorts
 
-The research team compares the performances of ResNet-34 with 3 options of shortcuts:
-
-* Option A: zero-padding shortcuts are used for increasing dimensions, and all shortcuts are parameter free.
-
-* Option B: projection-shortcuts are used for increasing dimensions, and other shortcuts are identity.
-
-* Option C: all shortcuts are projections.
+The research team compares the performances of ResNet-34 with 3 options of shortcuts that are mentioned earlier.
 
 Table 2 shows that all 3 options are considerably better than the plain counterpart. B is slightly better than A. The team argues that this is because *the zero-padded dimensions in A indeed have no residual learning*. C is marginally better than B, and we attribute this to the extra parameters introduced by many projection shortcuts. But the small difference among A/B/C indicates that projection shortcuts are not essential for addressing the degradation problem. So the research team do not use C in the rest of paper, to reduce memory/time complexity and model sizes. Identity shortcut are particularly important for not increasing the complexity of bottleneck architectures that are introduced below.
 
