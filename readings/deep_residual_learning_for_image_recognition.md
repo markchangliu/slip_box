@@ -60,12 +60,12 @@
 
 # Residual Learning
 
-The reseatch team argue that the residual function $F(x):=H(x)-x$ is easier to be optimized than the underlying original function $H(x)$. This argument supported by Figure 3, on which we can see that the residual function in general have small response stds, suggesting that identity mapings provide reasonable preconditioning.
+The reseatch team argue that the residual function $F(x):=H(x)-x$ is easier to be optimized than the underlying original function $H(x)$. This argument is supported by Figure 3, on which we can see that the residual function in general have small response stds, suggesting that identity mapings provide reasonable preconditioning.
 
 <p style="text-align: center"><img src="./img/arXiv_1512_03385/Figure3.png" width="600"></p>
 <p style="text-align: center">Figure 3. Standard deviation (std) of layer responses on CIFAR-10. The responses are the outputs of each 3x3 layer, after BN and before nonlinearlity. <b>Top:</b> the layers are shown in their original order. <b>Bottom:</b> the responses are ranked in descending order.</p>
 
-# ResNet Architecture
+# Published ResNets' Architecture
 
 The research team introduces 5 members for the ResNet family, which are ResNet-18, 34, 50, 101, and 152. The members share a stem and head architecture, but use different building blocks in stages. The architectures of blocks, stages, stem, head, and the entire ResNet networks are illustrated below.
 
@@ -107,7 +107,9 @@ The diagrams below illustrate the entire architectures and parameter settings of
 <p style="text-align: center"><img src="./img/arXiv_1512_03385/ResNet.png" width="800"></p>
 <p style="text-align: center">Figure 6. The architectures and parameter settings of all ResNet family members.</p>
 
-# Implementation Details
+# ImagNet Classification Result Analysis
+
+## Implementation Details
 
 * Resize the image with its shorter side randomly sampled in [256, 480] for scale augmentation.
 
@@ -141,11 +143,7 @@ The diagrams below illustrate the entire architectures and parameter settings of
 
     >> K. Simonyan and A. Zisserman. Very deep convolutional networks for large-scale image recognition. In ICLR, 2015.
 
-# ImagNet Classification Result Analysis
-
 ## 18-Layer and 34-Layer Plain Nets vs ResNets
-
-The research team 
 
 The comparision of training & validation errors btw 18-layer and 34-layer plain nets and ResNets reveals the following points:
 
@@ -187,4 +185,7 @@ The research team then evaluates and analyzes ResNet-50/101/152's performances. 
 
 ## Comparisions with State-of-the-art Methods
 
-As shown in Table 3, the baseline 34-layer ResNets have achieved very competitive accuracy. The ResNet-152 outperforms all previous models. 
+As shown in Table 3, the baseline 34-layer ResNets have achieved very competitive accuracy. The ResNet-152 outperforms all previous models.
+
+# CIFAR-10 Result Analysis
+
