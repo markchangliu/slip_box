@@ -193,3 +193,51 @@ As shown in Table 3, the baseline 34-layer ResNets have achieved very competitiv
 
 # CIFAR-10 Result Analysis
 
+The research team also examined the behaviours of residual network on the CIFAR-10 dataset. 
+
+## Network architecture
+
+The inputs are 32x32 images, with the per-pixel mean subtracted. The first layer is 3x3 convolutions. 
+
+Then, there are a stack of 6n layers with 3x3 convolutions on the feature maps of sizes {32, 16, 8} respectively, with 2n layers for each feature map size.
+
+The number of filters are {16, 32, 64} respectively. 
+
+The subsampling is done by convolutions with a stride of 2.
+
+The network ends with a global average pooling, a 10-way fully-connected layer, and softmax.
+
+All shortcut connections are identity shortcuts (Option A).
+
+So, the network totally has 6n+2 stacked weighted layers.
+
+## Implementation details
+
+* Weight decay = 1e-4, momentum = 0.9
+
+* Weights are initialized as in trhe following, but with no dropout.
+
+  > K. He, X. Zhang, S. Ren, and J. Sun. Delving deep into rectifiers: Surpassing human-level performance on imagenet classification. In ICCV, 2015
+
+  > S. Ioffe and C. Szegedy. Batch normalization: Accelerating deep network training by reducing internal covariate shift. In ICML, 2015.
+
+* Model are trained on 2 GPUs with a mini-batch size of 128.
+
+* Start with a learning rate of 0.1, divide it by 10 at 32k and 48k iterations, and terminate training at 64k iterations, which is determined on a 45k/5k train/val split.
+
+* Data augmentation for training: 4 pixels are padded on each side, and a 32x32 crop is randomly sampled from the padded image or its horizontal flip. 
+
+* No data augmentation for testing, only use the single view of original image.
+
+## Result analysis
+
+Table 4 shows the performances of plain nets and their residual nets counterparts.
+
+<p style="text-align: center"><img src="./img/arXiv_1512_03385/Table4.png" width="300"></p>
+<p style="text-align: center">Table 4. Classification error on the CIFAR-10 test set. For ResNet-110, the research team run it 5 times and show "best (mean +- std)" as in the following reference.</p>
+
+  > R. K. Srivastava, K. Greff, and J. Schmidhuber. Training very deep networks. 1507.06228, 2015.
+
+The deep plain nets suffer from increased depth, and exhibit higher training error when going deeper. In contrast, the residual nets manage to overcome the optimization diffuiculty and demonstrate accuracy gains when the depth increases.
+
+Notably, the 1202-layer residual network shows no optimization diffuiculty and is able to achieve training error \<0.1%, but its testing result is worse than that of the 110-layer network. The team argue that this is because of overfitting.
