@@ -1,10 +1,10 @@
-# Reference
+# Paper Info
 
 **Title**: Deep Residual Learning for Image Recognition
 
 **Research Team**: Microsoft Research
 
-**Publish Date**: Dec 10, 2015
+**Published Date**: Dec 10, 2015
 
 # Abstract
 
