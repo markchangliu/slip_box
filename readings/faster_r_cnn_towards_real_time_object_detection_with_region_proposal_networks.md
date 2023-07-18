@@ -50,14 +50,26 @@ To generate region proposals, the team makes a $n \times n$ sliding window from 
 
 The sliding window is mapped to a lower-dimentional feature (256-d for ZF and 512-d for VGG-16, with ReLU following). This feature is fed into 2 sibling $1 \times 1$ conv layers --- a box-regression layer (reg) and a box-classification layer (cls).
 
-<p style="text-align: center"><img src="./img/arXiv_1506_01497/Figure3.png" width="400"></p>
-<p style="text-align: center">Figure 3: Region Proposal Network (RPN).</p>
+<p style="text-align: center"><img src="./img/arXiv_1506_01497/Figure3a.png" width="400"></p>
+<p style="text-align: center">Figure 3a: Region Proposal Network (RPN).</p>
+
+<br>
+
+The following flowchart illustrates how the RPN module works:
+
+<p style="text-align: center"><img src="./img/arXiv_1506_01497/Figure3b.png" width="1200"></p>
+<p style="text-align: center">Figure 3b: RPN Flowchart.</p>
 
 ### Anchors
 
 At each sliding window location, the RPN predicts $k$ proposals. So the reg layer has $4k$ outputs and the cls layer outputs $2k$ scores. The $k$ proposals are parameterized relative to $k$ reference boxes or anchors. 
 
 An anchor is centered at the sliding window in question, and is associated with a scale and aspect ratio. The team uses 3 scales and 3 aspect ratios, yielding $k=9$ anchors at each sliding position. So for a conv feature map of a size $W \times H$, there are $WHk$ (typically ~2400) anchors in total.
+
+The following flowchart illustrates how the anchor generator works:
+
+<p style="text-align: center"><img src="./img/arXiv_1506_01497/Figure4a.png" width="1200"></p>
+<p style="text-align: center">Figure 4a: The anchor generator.</p>
 
 <br>
 
@@ -96,6 +108,11 @@ The team assign a positive label to 2 kinds of anchors:
 The team assign a negative label to a non-positive anchor if IoU ratio is lower than 0.3 for all ground-truth boxes.
 
 Anchors that are neither positive nor negative do not contribute to the training objective.
+
+The following flowchart illustrates how the anchors are labelled and sampled:
+
+<p style="text-align: center"><img src="./img/arXiv_1506_01497/Figure4b.png" width="1200"></p>
+<p style="text-align: center">Figure 4b: Label and sample anchors.</p>
 
 ### Loss function
 
