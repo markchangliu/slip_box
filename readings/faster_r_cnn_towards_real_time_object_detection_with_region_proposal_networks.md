@@ -114,6 +114,13 @@ The following flowchart illustrates how the anchors are labelled and sampled:
 <p style="text-align: center"><img src="./img/arXiv_1506_01497/Figure4b.png" width="1200"></p>
 <p style="text-align: center">Figure 4b: Label and sample anchors.</p>
 
+**Predict proposals from anchors**
+
+The following flowchart illustrates the process of predicting proposals from anchors.
+
+<p style="text-align: center"><img src="./img/arXiv_1506_01497/Figure4c.png" width="1200"></p>
+<p style="text-align: center">Figure 4c: Predict proposals from anchors.</p>
+
 ### Loss function
 
 The loss function for an image is defined as:

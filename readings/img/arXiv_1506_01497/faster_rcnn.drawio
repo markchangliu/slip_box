@@ -1,0 +1,607 @@
+<mxfile host="Electron" modified="2023-07-23T08:15:03.721Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="LRAhbaVTCkd-XewRxz-a" version="21.6.5" type="device">
+  <diagram name="Page-1" id="FaS-8nCcQiOraSkI_LxY">
+    <mxGraphModel dx="2877" dy="1227" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-181" value="&lt;b&gt;Label_and_sample_anchors&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="-240" y="3800" width="1730.18" height="857.25" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-120" value="&lt;b&gt;AnchorGenerator&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="-240" y="3210" width="1600" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-117" value="&lt;b&gt;RPNHead&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="-290" y="2430" width="1990" height="730" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gYGbqQAWoBk6Md79gJOv-15" target="gYGbqQAWoBk6Md79gJOv-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="172.5" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-15" value="&lt;b&gt;features&lt;/b&gt;: List[Tensor(c_in, H, W)]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="248.75" y="70" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-25" value="&lt;div style=&quot;&quot;&gt;&lt;b&gt;ProposalPredictor&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;- in_channel: int = c_in,&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;The number of channels of input feature maps.&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;All feature maps should have the same number of channels.&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;- num_anchors: int&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;The number of anchors or reference boxes.&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;- box_dim: int&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;The number of box dimentions.&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;For aligned box, box_dim = 4.&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;For rotated box, box_dim = 5.&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;- conv_dims: List[int]&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;The list of output channel numbers.&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;The element number of this list represents the number of conv&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;layers in the RPN module.&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="87.5" y="160" width="522.5" height="780" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-36" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="176.25" y="470" width="345" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-35" value="&lt;b&gt;Conv2D * len(conv_dims)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="gYGbqQAWoBk6Md79gJOv-36" vertex="1">
+          <mxGeometry width="340" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-28" value="&lt;b&gt;Conv2D&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- c_in: int = in_channel or previous_layer_c&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- c_out: int = conv_dims[i]&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- k: int = 3, s: int = 1, p: int = 1&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- activation: Module = ReLu&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;" parent="gYGbqQAWoBk6Md79gJOv-36" vertex="1">
+          <mxGeometry x="55.95" y="60" width="244.05" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-31" value="..." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="gYGbqQAWoBk6Md79gJOv-36" vertex="1">
+          <mxGeometry x="146.8581081081081" y="160" width="51.28378378378378" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-32" value="&lt;b&gt;Conv2D&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="gYGbqQAWoBk6Md79gJOv-36" vertex="1">
+          <mxGeometry x="118.88513513513514" y="190" width="107.22972972972973" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-37" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;objectness_logits_conv&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;br&gt;- c_in: int = conv_dims[-1]&lt;br&gt;- c_out: int = num_anchors&lt;br&gt;- k: int = 1, s: int = 1, p: int = 0" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=center;" parent="1" vertex="1">
+          <mxGeometry x="130" y="820" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-38" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;anchor_deltas_conv&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;br&gt;- c_in: int = conv_dims[-1]&lt;br&gt;- c_out: int = num_anchors * box_dim&lt;br&gt;- k: int = 1, s: int = 1, p: int = 0" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=center;" parent="1" vertex="1">
+          <mxGeometry x="360" y="820" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gYGbqQAWoBk6Md79gJOv-35" target="gYGbqQAWoBk6Md79gJOv-38" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.47;entryY=0.02;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="gYGbqQAWoBk6Md79gJOv-35" target="gYGbqQAWoBk6Md79gJOv-37" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-42" value="&lt;b&gt;object_logits&lt;/b&gt;:&lt;br&gt;List[Tensor(A, H, W)]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="149" y="1007" width="136.25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-43" value="&lt;b&gt;anchor_deltas&lt;/b&gt;: &lt;br&gt;List[Tensor(A * box_dim, H, W)]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="385" y="1006" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-44" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="gYGbqQAWoBk6Md79gJOv-42" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="217.1249999999999" y="940" as="sourcePoint" />
+            <mxPoint x="218.69973684210538" y="1020" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-45" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gYGbqQAWoBk6Md79gJOv-25" target="gYGbqQAWoBk6Md79gJOv-43" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="920" as="sourcePoint" />
+            <mxPoint x="290" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-46" value="&lt;b&gt;AlignedAnchorGenerator&lt;/b&gt;&lt;br&gt;&lt;br&gt;- all_sizes: List[List[float]] or List[float]&lt;br&gt;size is sqrt(anchor_area).&lt;br&gt;If List[List[float]], size[i] is the list of anchor sizes to use for feature_map[i].&lt;br&gt;If List[float], size is used for all feature maps.&lt;br&gt;&lt;br&gt;- all_aspect_ratio: List[List[float]] or List[float]&lt;br&gt;aspect_ratio is h / w. Same boardcast rule for `all_sizes` applies.&lt;br&gt;&lt;br&gt;- strides: List[int]&lt;br&gt;Stride of each input feature.&lt;br&gt;&lt;br&gt;- offset: float&lt;br&gt;Relative offset btw the center of the first anchor and the top-left corner of the image.&lt;br&gt;Value has to be in [0, 1).&lt;br&gt;Recommend to use 0.5, which means half of the image stride.&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="760" y="160" width="510" height="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gYGbqQAWoBk6Md79gJOv-48" target="gYGbqQAWoBk6Md79gJOv-51" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="925" y="850" />
+              <mxPoint x="925" y="850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-48" value="&lt;b&gt;generate_cell_anchors&lt;/b&gt;&lt;br&gt;&lt;br&gt;- all_sizes: List[List[float]] = all_sizes&lt;br&gt;- all_aspect_ratios: List[List[float]] = all_aspect_ratios" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="810" y="450" width="400" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gYGbqQAWoBk6Md79gJOv-47" target="gYGbqQAWoBk6Md79gJOv-49" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-47" value="&lt;b&gt;generate_cell_anchors_per_feature&lt;/b&gt;&lt;br&gt;&lt;br&gt;- sizes: List[float] = all_sizes[i]&lt;br&gt;- aspect_ratios: List[float] = all_aspect_ratios[i]&lt;br&gt;&lt;br&gt;&lt;i&gt;for each combination of (sizes, aspect_ratios):&lt;br&gt;area = size ** 2&lt;br&gt;w = sqrt(area / aspect_ratio)&lt;br&gt;h = aspect_ratio * w&lt;br&gt;x0, y0, x1, y1 = -w / 2, -h / 2, w / 2, h / 2&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="860" y="540" width="300" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-49" value="&lt;b&gt;append_cell_anchors_per_feature&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="902.5" y="760" width="215" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.305;entryY=0.01;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="gYGbqQAWoBk6Md79gJOv-51" target="gYGbqQAWoBk6Md79gJOv-53" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-51" value="&lt;b&gt;self.num_anchors&lt;/b&gt;:&lt;br&gt;List[num_sizes * num_aspect_ratios]&lt;br&gt;&lt;br&gt;&lt;b&gt;self.cell_anchors:&lt;/b&gt;&lt;br&gt;List[Tensor(self.num_anchors[i], 4)]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="822.5" y="880" width="205" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="gYGbqQAWoBk6Md79gJOv-53" target="gYGbqQAWoBk6Md79gJOv-56" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-53" value="&lt;b&gt;grid_anchors&lt;/b&gt;&lt;br&gt;&lt;br&gt;Generate anchors at each grid cell for a list of feature map sizes.&lt;br&gt;&lt;br&gt;This is done by, firstly, generating anchor x-y coordinates on the &lt;u&gt;original img&lt;/u&gt;&amp;nbsp;ranging from offset * stride to feature_map_size * stride with a step of stride.&amp;nbsp;&lt;br&gt;Notebally, feature maps with different strides does not affect the sizes of anchors (it only depends on the size of cell_anchors or base_anchors but nothing else).&amp;nbsp;&lt;br&gt;&lt;br&gt;Secondly, we add the cell_anchor shifts (x0, y0, x1, y1) on those coordinates.&lt;br&gt;&lt;br&gt;&lt;i&gt;for each combination of (feature_map_size, self.strides, self.cell_anchors):&lt;br&gt;x_coords = arange(self.offset * stride, feature_map_width * stride, stride)&lt;br&gt;y_coords = arange(self.offset * stride, feature_map_height * stride, stride)&lt;br&gt;xx, yy = meshgrid(x_coords, y_coords)&lt;br&gt;anchor_coords = concat([xx, yy, xx, yy], dim = 0)&lt;br&gt;anchors = anchor_coords + self.cell_anchors&lt;br&gt;&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="792" y="1007" width="436" height="273" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-54" value="&lt;b&gt;int_feats&lt;/b&gt;: &lt;br&gt;List[Tensor(conv_dims[-1], H, W)]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="360" y="720" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-56" value="&lt;b&gt;anchors: &lt;/b&gt;List[Tensor(self.num_anchors, 4)]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="865" y="1372" width="290" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="gYGbqQAWoBk6Md79gJOv-59" target="gYGbqQAWoBk6Md79gJOv-70" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-59" value="&lt;b&gt;feats: &lt;/b&gt;List[Tensor]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1320" y="885" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-62" value="&lt;b&gt;AnchorMatcher&lt;/b&gt;&lt;br&gt;&lt;br&gt;Label each anchor as one of {ignore, negative, positive}, and assign a gt box to each positive anchor.&lt;br&gt;&lt;br&gt;- thresholds: List[float]&lt;br&gt;The thresholds between negative/ignore and ignore/positive.&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="110" y="1200" width="460" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gYGbqQAWoBk6Md79gJOv-64" target="gYGbqQAWoBk6Md79gJOv-62" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-64" value="&lt;b&gt;match_quality_matrix&lt;/b&gt;: &lt;br&gt;Tensor(num_gts, num_anchors)&lt;br&gt;The pairwise IoU between gts and anchors." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="215.25" y="1110" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-66" value="&lt;b&gt;matches&lt;/b&gt;: &lt;br&gt;Tensor(num_anchors)&lt;br&gt;Where matches[i] is the index in [0, num_gts) of the matched gt." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="120" y="1380" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-67" value="&lt;b&gt;labels&lt;/b&gt;: &lt;br&gt;Tensor(num_anchors)&lt;br&gt;Indicate whether a pred is positive, negative, or ignored." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="379" y="1380" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-68" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.229;exitY=0.993;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="gYGbqQAWoBk6Md79gJOv-62" target="gYGbqQAWoBk6Md79gJOv-66" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="1400" as="sourcePoint" />
+            <mxPoint x="400" y="1350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-69" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.791;exitY=1.006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gYGbqQAWoBk6Md79gJOv-62" target="gYGbqQAWoBk6Md79gJOv-67" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="1400" as="sourcePoint" />
+            <mxPoint x="400" y="1350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gYGbqQAWoBk6Md79gJOv-70" target="gYGbqQAWoBk6Md79gJOv-53" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-70" value="&lt;b&gt;feat_map_sizes: &lt;/b&gt;List[Tensor]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1059" y="880" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gYGbqQAWoBk6Md79gJOv-74" value="&lt;b&gt;RPNHead&lt;/b&gt;&lt;br&gt;&lt;br&gt;- in_feat_names: List[str]&lt;br&gt;The list of names of input features, i.e. [&quot;p2&quot;, &quot;p3&quot;, ...] for FPN features.&lt;br&gt;&lt;br&gt;- proposal_predictor: nn.Module&lt;br&gt;A module that predicts objectness logits and proposal regression deltas.&lt;br&gt;&lt;br&gt;- anchor_generator: nn.Module&lt;br&gt;A module of generating anchors.&lt;br&gt;&lt;br&gt;- anchor_matcher: AnchorMatcher&lt;br&gt;- box2box_transform: Box2BoxTransform&lt;br&gt;&lt;br&gt;- batch_size_per_img: int&lt;br&gt;Number of anchors per image to sample from training&lt;br&gt;&lt;br&gt;- positive_fraction: float&lt;br&gt;Fraction of foreground anchors to sample for training.&lt;br&gt;&lt;br&gt;- pre_nms_topk: Tuple[float]&lt;br&gt;(train, test) the number of top k proposals to select before NMS, in training &amp;amp; testing.&lt;br&gt;&lt;br&gt;- post_nms_topk: Tuple[float]&lt;br&gt;(train, test) the number of top k proposals to select after NMS, in training and testing.&lt;br&gt;&lt;br&gt;- nms_threshold: float&lt;br&gt;The threshold usd to remove duplicate proposals.&lt;br&gt;&lt;br&gt;- min_box_size: int&lt;br&gt;Remove proposal boxes with any side smaller this threshold." style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="147.5" y="1600" width="492.5" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-2" value="&lt;b&gt;images&lt;/b&gt;: &lt;br&gt;ImageList&lt;br&gt;&lt;br&gt;A data structure that holds a list of images as a single tensor. This works by padding the images to the same size.&lt;br&gt;&lt;br&gt;- tensor: Tensor(img_num, c, h, w)&lt;br&gt;&lt;br&gt;- img_sizes: List[Tuple[int, int]]&lt;br&gt;Original image sizes before padding.&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-189.87" y="1600" width="254.75" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-3" value="&lt;b&gt;feats&lt;/b&gt;: &lt;br&gt;Dict[str, Tensor(img_num, c, h, w)&lt;br&gt;&lt;br&gt;A data structure that represents a mapping from feature map name to tensor." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-189.87" y="1820" width="254.75" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-4" value="&lt;b&gt;gt_instances&lt;/b&gt;: &lt;br&gt;Optional[List[&lt;b&gt;Instances&lt;/b&gt;]]&lt;br&gt;&lt;br&gt;The class &lt;b&gt;Instance &lt;/b&gt;represents a list of instances (e.g., boxes, masks, labels, scores). in an image.&lt;br&gt;&lt;br&gt;- img_size: Tuple[int, int]&lt;br&gt;&lt;br&gt;- gt_bboxes: &lt;b&gt;Boxes&lt;/b&gt;&lt;br&gt;The class &lt;b&gt;Boxes &lt;/b&gt;holds a tensor of shape (num_instances, 4), where 4 represents the dim of coordinates (x1, y1, x2, y2).&lt;br&gt;&lt;br&gt;- gt_classes: Tensor(num_instances, 1)&lt;br&gt;&lt;br&gt;- gt_masks:&amp;nbsp;&lt;b&gt;PolygonMasks&lt;/b&gt;&lt;br&gt;This class holds List[List[Tensor(num_instances * 2)]]. The first level of the list correspond to individual instances, the 2nd level to all the polygons that compose the instance, the 3rd level to the polygon coords [x0, y0, x1, y1, ..., xn, yn]." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-212.5" y="1940" width="300" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BEdHSaELOOkyDhZWxIg6-12" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="665.25" y="2710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-12" value="&lt;b&gt;img_sizes&lt;/b&gt;: &lt;br&gt;List(num_imgs, Tuple(pad_h, pad_w))" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="595.75" y="2750" width="139" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-13" target="BEdHSaELOOkyDhZWxIg6-20" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-13" value="&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;feats&lt;/b&gt;: &lt;br&gt;Dict[str, Tensor(img_num, c, h, w)]&lt;br&gt;&lt;br&gt;A mapping from feature map name to tensors." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-230" y="2515" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-15" target="BEdHSaELOOkyDhZWxIg6-35" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-15" value="&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;gt_instances&lt;/b&gt;:&lt;br&gt;Optional[List[&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;Instances&lt;/b&gt;]]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="582.5" y="2833" width="160" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-16" target="BEdHSaELOOkyDhZWxIg6-18" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-16" value="AnchorGenerator" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;" parent="1" vertex="1">
+          <mxGeometry x="10" y="2677.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-18" target="BEdHSaELOOkyDhZWxIg6-35" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-18" target="BEdHSaELOOkyDhZWxIg6-53" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-18" target="BEdHSaELOOkyDhZWxIg6-42" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="283" y="3100" />
+              <mxPoint x="1215" y="3100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-18" value="&lt;b&gt;anchors&lt;/b&gt;:&lt;br&gt;List[num_feat_levels, Boxes(num_anchors_at_feat_level_i, 4)]&lt;br&gt;&lt;br&gt;Anchors for each feature map. num_anchors = feat_h * feat_w * (num_sizes * num_aspect_ratios)." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="180" y="2655" width="230" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-20" target="BEdHSaELOOkyDhZWxIg6-75" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="294.5" y="2595" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-20" value="RPN" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="92" y="2520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-75" target="BEdHSaELOOkyDhZWxIg6-28" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="495.75" y="2595" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="520" y="2550" />
+              <mxPoint x="520" y="2550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-28" target="BEdHSaELOOkyDhZWxIg6-69" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="862.75" y="2600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-28" value="transpose_op" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="614.75" y="2520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-35" target="BEdHSaELOOkyDhZWxIg6-71" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-35" value="label_and_sample_anchors" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="555" y="2910" width="215" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-42" target="BEdHSaELOOkyDhZWxIg6-90" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-42" value="get_rpn_losses" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1154.5" y="2910" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-69" target="BEdHSaELOOkyDhZWxIg6-53" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-69" target="BEdHSaELOOkyDhZWxIg6-42" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-69" value="&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;pred_object_logits&lt;/b&gt;:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;List[num_feat_levels, Tensor(num_imgs, num_cell_anchors * h * w)]&lt;br&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;pred_anchor_deltas&lt;/b&gt;:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;List[num_feat_levels, Tensor(num_imgs, num_cell_anchors * h * w, box_dim)]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="865" y="2465" width="190" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-71" target="BEdHSaELOOkyDhZWxIg6-42" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-71" value="&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;gt_labels&lt;/b&gt;:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;List[num_imgs, Tensor(num_img_anchors)]&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;Label values are {-1, 0, 1}, which means -1 = ignore, 0 = negative, 1 = positive.&lt;br&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;gt_boxes&lt;/b&gt;:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;List[num_imgs, Tensor(num_img_anchors, box_dim)]&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;Values are the matched gt boxes for each anchor. Values are undefined for those ignore and negative anchors." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="847.62" y="2830" width="223.25" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-75" value="&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;pred_object_logits&lt;/b&gt;:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;List[num_feat_levels, Tensor(num_imgs, num_cell_anchors, h, w)]&lt;br&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;pred_anchor_deltas&lt;/b&gt;:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;List[num_feat_levels, Tensor(num_imgs, num_cell_anchors * box_dim, h, w)]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="310" y="2482.5" width="210" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-53" value="get_proposals" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="900" y="2678" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-86" value="&lt;b&gt;proposals&lt;/b&gt;:&lt;br&gt;List(num_imgs, &lt;b&gt;Instances&lt;/b&gt;(num_post_nms_topk_proposals))" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="1328" y="2673" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-87" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-53" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1330" y="2750" as="sourcePoint" />
+            <mxPoint x="1200" y="2708" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-89" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="BEdHSaELOOkyDhZWxIg6-86" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1230" y="2708" as="sourcePoint" />
+            <mxPoint x="1380" y="2700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-90" value="&lt;b&gt;rpn_losses&lt;/b&gt;:&lt;br&gt;Dict[str, Tensor(1)]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1360" y="2917.5" width="150" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-98" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BEdHSaELOOkyDhZWxIg6-94" target="BEdHSaELOOkyDhZWxIg6-97" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-94" value="get_cell_anchors" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70.13" y="3307.81" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-95" target="BEdHSaELOOkyDhZWxIg6-94" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="0.12999999999999545" y="3327.81" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-95" value="&lt;b&gt;aspect_ratios&lt;/b&gt;:&lt;br&gt;Aspect_ratio = h / w. List[List[num_aspect_ratios, aspect_ratios]]&lt;br&gt;&lt;br&gt;&lt;b&gt;sizes&lt;/b&gt;:&amp;nbsp;&lt;br&gt;List[List[num_sizes, sizes]]&lt;br&gt;&lt;br&gt;Size = sqrt(h * w). The first level corresponds to the list of sizes/aspect ratios that are used for each feature map." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-199.87" y="3247.81" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-97" target="BEdHSaELOOkyDhZWxIg6-106" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-97" value="&lt;b&gt;cell_anchors&lt;/b&gt;:&lt;br&gt;BufferList(Dict[str, num_sizes * num_aspect_ratios, 4])&lt;br&gt;&lt;br&gt;The relative (x1, y1, x2, y2) of base anchors for each feature map." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="230.13" y="3280" width="220" height="95.62" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-100" target="BEdHSaELOOkyDhZWxIg6-102" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-100" value="&lt;b&gt;feats&lt;/b&gt;:&lt;br&gt;List[num_feat_levels, Tensor(img_num, c, h, w)]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-189.87" y="3457.81" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-102" target="BEdHSaELOOkyDhZWxIg6-104" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-102" value="get_feat_sizes" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70.13" y="3460.81" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-104" target="BEdHSaELOOkyDhZWxIg6-106" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-104" value="&lt;b&gt;feat_sizes&lt;/b&gt;:&lt;br&gt;List[num_feat_levels, Tuple[h, w]]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="240.13" y="3458.31" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-106" target="BEdHSaELOOkyDhZWxIg6-111" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-106" value="get_grid_offsets&lt;br&gt;hint: arange, meshgrid" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="440.13" y="3455.56" width="205" height="56.5" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-107" target="BEdHSaELOOkyDhZWxIg6-106" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-107" value="&lt;b&gt;strides&lt;/b&gt;: List[int]&lt;br&gt;The stride of each feature map.&lt;br&gt;&lt;br&gt;&lt;b&gt;offset&lt;/b&gt;: float&lt;br&gt;The offset btw the center of the first anchor and the top-left corner of each grid.&lt;br&gt;Recommend to use 0.5." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="417.63" y="3550.31" width="250" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-114" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-111" target="BEdHSaELOOkyDhZWxIg6-112" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-111" value="&lt;b&gt;shift_xs, shift_ys&lt;/b&gt;:&lt;br&gt;List(num_feat_levels, Tensor(feat_h * feat_w))&lt;br&gt;&lt;br&gt;The xy coords for each anchor center at each feature map." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="700.13" y="3434.56" width="180" height="99.5" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-116" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-112" target="BEdHSaELOOkyDhZWxIg6-115" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-112" value="get_grid_anchors" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="940.13" y="3454.56" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-115" value="&lt;b&gt;grid_anchors&lt;/b&gt;:&lt;br&gt;List(num_feat_levels, Tensor(feat_h * feat_w * num_sizes * num_aspect_ratios, 4))" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1120.13" y="3439.56" width="170" height="89.5" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-124" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-121" target="BEdHSaELOOkyDhZWxIg6-123" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-121" value="&lt;b&gt;anchors&lt;/b&gt;:&lt;br&gt;List(num_feat_levels, Boxes(num_anchors_at_feat_level_i, box_dim))" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-182.32" y="4009.5" width="222.5" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-128" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-123" target="BEdHSaELOOkyDhZWxIg6-125" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-123" value="cat_anchor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="110.18" y="4014.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-125" value="&lt;b&gt;anchors&lt;/b&gt;:&lt;br&gt;Boxes(num_all_anchors, box_dim)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="305.44" y="4014.5" width="174.87" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-127" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-126" target="BEdHSaELOOkyDhZWxIg6-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-126" value="&lt;b&gt;aspect_ratios&lt;/b&gt;:&lt;br&gt;Aspect_ratio = h / w. List[List[num_aspect_ratios, aspect_ratios]]&lt;br&gt;&lt;br&gt;&lt;b&gt;sizes&lt;/b&gt;:&amp;nbsp;&lt;br&gt;List[List[num_sizes, sizes]]&lt;br&gt;&lt;br&gt;Size = sqrt(h * w). The first level corresponds to the list of sizes/aspect ratios that are used for each feature map." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-240" y="2627.5" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-136" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-125" target="BEdHSaELOOkyDhZWxIg6-134" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="488.75" y="4044.75" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-138" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-134" target="BEdHSaELOOkyDhZWxIg6-137" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-134" value="pairwise_iou" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="549.9999999999999" y="4014.75" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-142" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-137" target="BEdHSaELOOkyDhZWxIg6-139" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-137" value="&lt;b&gt;ious&lt;/b&gt;:&lt;br&gt;List(num_imgs, Tensor(num_instances_img_i, num_all_anchors))" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="750" y="4011" width="180" height="67.5" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-143" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-139" target="BEdHSaELOOkyDhZWxIg6-140" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-139" value="match_quality_matrix" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="770" y="4107.25" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-169" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-140" target="BEdHSaELOOkyDhZWxIg6-144" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-177" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-140" target="BEdHSaELOOkyDhZWxIg6-176" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-140" value="&lt;b&gt;match_idxs&lt;/b&gt;: &lt;br&gt;List(num_imgs, Tensor(num_all_anchors))&lt;br&gt;Where matches[img_idx][i] is the index in [0, num_gts) of the matched gt.&lt;br&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;gt_labels&lt;/b&gt;:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;List(num_imgs, Tensor(num_all_anchors))&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;Indicate whether a pred is positive, negative, or ignored." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="734.5" y="4231.25" width="211" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-156" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-144" target="BEdHSaELOOkyDhZWxIg6-155" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-144" value="remove_anchors_outside_imgs" style="rounded=0;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="222.13" y="4291.25" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-148" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BEdHSaELOOkyDhZWxIg6-146" target="BEdHSaELOOkyDhZWxIg6-144" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-146" value="&lt;b&gt;img_sizes&lt;/b&gt;:&lt;br&gt;List(num_imgs, Tuple[h, w])&lt;br&gt;&lt;br&gt;&lt;b&gt;anchor_boundary_thre&lt;/b&gt;:&amp;nbsp;&lt;br&gt;float" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="241.95" y="4161.25" width="160.37" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-162" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-140" target="BEdHSaELOOkyDhZWxIg6-161" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="4497.25" as="targetPoint" />
+            <mxPoint x="597.5" y="4366.25" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="670" y="4311.25" />
+              <mxPoint x="670" y="4430.25" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-153" value="if &lt;br&gt;anchor_boundary_thres &lt;br&gt;&amp;gt; 0" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="465" y="4247.25" width="155" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-167" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-155" target="BEdHSaELOOkyDhZWxIg6-158" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="70" y="4567.25" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-155" value="&lt;b&gt;anchors_inside_img&lt;/b&gt;:&lt;br&gt;List(num_imgs, BoolTensor(num_all_anchors))" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-20.000000000000007" y="4281.25" width="180" height="59" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-160" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-158" target="BEdHSaELOOkyDhZWxIg6-140" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-158" value="change label to -1 according to the index vector" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="216.25" y="4537.25" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-164" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-161" target="BEdHSaELOOkyDhZWxIg6-163" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-161" value="subsample_labels" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="430" y="4400.25" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-166" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-163" target="BEdHSaELOOkyDhZWxIg6-158" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-163" value="&lt;b&gt;anchors_selected&lt;/b&gt;:&lt;br&gt;List(num_imgs, BoolTensor(num_all_anchors))" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="202" y="4401.25" width="180" height="59" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-170" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-171" target="BEdHSaELOOkyDhZWxIg6-173" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-171" value="&lt;b&gt;gt_instances&lt;/b&gt;:&lt;br&gt;List(num_imgs, Instances(num_instances_img_i))" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-168.31000000000006" y="3879.75" width="189.87" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-172" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-173" target="BEdHSaELOOkyDhZWxIg6-174" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-173" value="get_boxes&lt;br&gt;get_img_sizes" style="rounded=0;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="111.55999999999995" y="3889.75" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-175" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-174" target="BEdHSaELOOkyDhZWxIg6-134" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-178" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-174" target="BEdHSaELOOkyDhZWxIg6-176" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-174" value="&lt;b&gt;gt_boxes&lt;/b&gt;:&lt;br&gt;List(num_imgs, Boxes(num_instances_img_i, box_dim))&lt;br&gt;&lt;br&gt;&lt;b&gt;img_sizes&lt;/b&gt;:&amp;nbsp;&lt;br&gt;List(num_imgs, Tuple[h, w])" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="293.44000000000005" y="3857.25" width="186.87" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-180" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-176" target="BEdHSaELOOkyDhZWxIg6-179" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-176" value="select gt_boxes according to match_idxs" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1020" y="4281.25" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-179" value="&lt;b&gt;matched_gt_boxes&lt;/b&gt;: &lt;br&gt;List(num_imgs, Tensor(num_all_anchors, box_dim))&lt;br&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;Values are the matched gt boxes for each anchor. Values are undefined for those ignore and negative anchors..&lt;br&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;gt_labels&lt;/b&gt;:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;List(num_imgs, Tensor(num_all_anchors))" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1219" y="4230.75" width="219" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-183" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="BEdHSaELOOkyDhZWxIg6-182" target="BEdHSaELOOkyDhZWxIg6-161" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BEdHSaELOOkyDhZWxIg6-182" value="&lt;b&gt;pos_fraction&lt;/b&gt;:&lt;br&gt;float" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="425.13" y="4496" width="129.87" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-1" target="o4AIp1Sj-yEb8tY4_vV4-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-1" value="&lt;b&gt;anchors&lt;/b&gt;:&lt;br&gt;List(num_feat_levels, Boxes(num_anchors, 4))&lt;br&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;pred_anchor_deltas&lt;/b&gt;:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;List(num_feat_levels, Tensor(num_imgs, num_anchors, 4))&lt;br&gt;&lt;br&gt;num_anchors = w * h * num_cell_anchors" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-349.87" y="4996.25" width="340" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.005;entryY=0.506;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-3" target="o4AIp1Sj-yEb8tY4_vV4-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-3" value="unsqueeze_and_expand_anchors" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70.13" y="5021.25" width="229.87" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-5" target="o4AIp1Sj-yEb8tY4_vV4-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-5" value="&lt;b&gt;anchors&lt;/b&gt;:&lt;br&gt;List(num_feat_levels, Boxes(num_total_anchors, 4))&lt;br&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;pred_anchor_deltas&lt;/b&gt;:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;List(num_feat_levels, Tensor(num_total_anchors, 4))&lt;br&gt;&lt;br&gt;num_total_anchors = num_imgs * num_anchors" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="390.13" y="4996.25" width="300" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.496;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-7" target="o4AIp1Sj-yEb8tY4_vV4-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-7" value="scale_clamp_apply_deltas&lt;br&gt;&lt;br&gt;deltas = deltas / weights&lt;br&gt;dw = clamp(dw, scale_clamp)&lt;br&gt;same logic for dh&lt;br&gt;&lt;br&gt;x = anchor_w * delta_x + anchor_x&lt;br&gt;w = exp(delta_w) * anchor_w&lt;br&gt;same logic for y and h" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="4980" width="230" height="142.5" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-9" target="o4AIp1Sj-yEb8tY4_vV4-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-9" value="&lt;b&gt;proposals&lt;/b&gt;:&lt;br&gt;List(num_feat_levels, Tensor(num_imgs, num_anchors, 4))" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="5031.25" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-11" target="o4AIp1Sj-yEb8tY4_vV4-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-11" value="pre_nms_topk" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="5166.25" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-15" target="o4AIp1Sj-yEb8tY4_vV4-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-15" value="&lt;b&gt;weights&lt;/b&gt;: Tuple(4, float)&lt;br&gt;for (dx, dy, dw, dh)&lt;br&gt;&lt;br&gt;&lt;b&gt;scale_clamp&lt;/b&gt;: Tuple(2, int)&lt;br&gt;for dw and dh" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="796" y="4790" width="197.5" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-19" target="o4AIp1Sj-yEb8tY4_vV4-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-19" value="&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;pred_objectness_logits&lt;/b&gt;:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;List(num_feat_levels, Tensor(num_imgs, num_anchors))&lt;br&gt;&lt;br&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;pre_nms_topk_per_feat_level&lt;/b&gt;: int" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="5161.25" width="320" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-21" target="o4AIp1Sj-yEb8tY4_vV4-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-21" target="o4AIp1Sj-yEb8tY4_vV4-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-21" value="&lt;b&gt;topk_proposals&lt;/b&gt;:&amp;nbsp;&lt;br&gt;Tensor(num_imgs, num_anchors_pre_nms * num_feat_levels, 4)&lt;br&gt;&lt;br&gt;&lt;b&gt;topk_scores&lt;/b&gt;:&lt;br&gt;Tensor(num_imgs, num_anchors_pre_nms * num_feat_levels)&lt;br&gt;&lt;br&gt;&lt;b&gt;level_ids&lt;/b&gt;:&lt;br&gt;Tensor(num_anchors_pre_nms * num_feat_levels)&lt;br&gt;(0, 0, 0,...,1, 1, 1,...)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1045" y="5280" width="370" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.475;entryY=-0.012;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-23" target="o4AIp1Sj-yEb8tY4_vV4-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-23" value="assert_invalid_proposal&lt;br&gt;&lt;br&gt;Proposals may have infinite deltas or scores when training diverges. Raise warning and remove those invalid proposals." style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1480" y="5290" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-25" target="o4AIp1Sj-yEb8tY4_vV4-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-25" value="&lt;b&gt;valid_idx&lt;/b&gt;:&lt;br&gt;List(num_imgs, num_anchors_pre_nms * num_feat_levels)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1409" y="5525" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-31" target="o4AIp1Sj-yEb8tY4_vV4-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-31" value="clip_proposals&lt;br&gt;&lt;br&gt;limit x coords to the range [0, w] and y coords to the range [0, h]" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="5490" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-34" target="o4AIp1Sj-yEb8tY4_vV4-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-34" value="&lt;b&gt;img_sizes&lt;/b&gt;:&lt;br&gt;List(num_imgs, Tuple(h, w))" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1145" y="5650" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.993;entryY=0.488;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-36" target="o4AIp1Sj-yEb8tY4_vV4-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-36" value="remove_proposals_smaller_than_min_size" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800.13" y="5515" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-38" target="o4AIp1Sj-yEb8tY4_vV4-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-38" value="&lt;b&gt;proposals_pre_nms:&lt;/b&gt;&lt;br&gt;Tensor(num_imgs, num_anchors_pre_nms, 4)&lt;br&gt;&lt;br&gt;&lt;b&gt;scores_pre_nms&lt;/b&gt;:&lt;br&gt;Tensor(num_imgs, num_anchors_pre_nms)&lt;br&gt;&lt;br&gt;&lt;b&gt;level_ids_pre_nms&lt;/b&gt;:&lt;br&gt;Tensor(num_imgs, num_anchors_pre_nms)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="470" y="5482" width="270" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-41" target="o4AIp1Sj-yEb8tY4_vV4-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-41" value="&lt;b&gt;min_size&lt;/b&gt;: float" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="880.13" y="5410" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.976;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-43" target="o4AIp1Sj-yEb8tY4_vV4-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-43" value="per_feat_level_nms" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="255.13" y="5517" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="o4AIp1Sj-yEb8tY4_vV4-45" target="o4AIp1Sj-yEb8tY4_vV4-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-45" value="&lt;b&gt;post_nms_topk_over_all_feat_levels: &lt;/b&gt;int&lt;br&gt;&lt;br&gt;&lt;b&gt;nms_threshold&lt;/b&gt;: float" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="190.13" y="5405" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o4AIp1Sj-yEb8tY4_vV4-47" value="&lt;b&gt;proposal_boxes&lt;/b&gt;:&lt;br&gt;List(num_imgs, num_anchors_post_nms, 4)&lt;br&gt;&lt;br&gt;&lt;b&gt;proposal_logits&lt;/b&gt;:&lt;br&gt;List(num_imgs, num_anchors_post_nums)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-83.75" y="5502" width="260" height="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
